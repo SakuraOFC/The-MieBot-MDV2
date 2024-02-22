@@ -29,7 +29,7 @@ async function handler(m, { conn: _envio, usedPrefix }) {
 }
 
   const message = users.map((v, index) => `*${index + 1} ➺* @${v.user.jid.replace(/[^0-9]/g, '')}\n✨️ Wa.me/${v.user.jid.replace(/[^0-9]/g, '')}?text=${usedPrefix}creador\n*𝖭𝗈𝗆𝖻𝗋𝖾 :* ${v.user.name || '-'}\n*𝖠𝖼𝗍𝗂𝗏𝖺 :* ${ v.uptime ? convertirMsADiasHorasMinutosSegundos(Date.now() - v.uptime) : "Desconocido"}`).join('\n\n');
-  const replyMessage = message.length === 0 ? '*✨️ 𝘕𝘰 𝘏𝘢𝘺 𝘚𝘶𝘣 𝘉𝘰𝘵𝘴 𝘋𝘪𝘴𝘱𝘰𝘯𝘪𝘣𝘭𝘦 𝘗𝘰𝘳 𝘌𝘭 𝘔𝘰𝘮𝘦𝘯𝘵𝘰 . 🌵Vᴇʀɪғɪǫᴜᴇ Mᴀs Tᴀʀᴅᴇ.*' : message;
+  const replyMessage = message.length === 0 ? '*𝘕𝘰 𝘏𝘢𝘺 𝘚𝘶𝘣 𝘉𝘰𝘵𝘴 𝘋𝘪𝘴𝘱𝘰𝘯𝘪𝘣𝘭𝘦 𝘗𝘰𝘳 𝘌𝘭 𝘔𝘰𝘮𝘦𝘯𝘵𝘰 . 🌵Vᴇʀɪғɪǫᴜᴇ Mᴀs Tᴀʀᴅᴇ.*' : message;
   const totalUsers = users.length;
   const responseMessage = `${replyMessage.trim()}`.trim();
 await m.reply(`*🚀 𝘈𝘲𝘶𝘪 𝘛𝘪𝘦𝘯𝘦 𝘓𝘢 𝘓𝘪𝘴𝘵𝘢 𝘋𝘦 𝘓𝘰𝘴 𝘚𝘶𝘣 𝘉𝘰𝘵𝘴 𝘈𝘤𝘵𝘪𝘷𝘰𝘴 𝘌𝘯 𝘌𝘴𝘵𝘰𝘴 𝘔𝘰𝘮𝘦𝘯𝘵𝘰𝘴*\n\nSᴜʙ Bᴏᴛs Cᴏɴᴇᴄᴛᴀᴅᴏs : ${totalUsers || '0'}`)

@@ -1,93 +1,134 @@
-import fetch from 'node-fetch';
-const handler = async (m, {conn, usedPrefix, usedPrefix: _p, __dirname, text, isPrems}) => {
-  if (usedPrefix == 'a' || usedPrefix == 'A') return;
-  try {
-    const pp = imagen2;
-    // let vn = './media/menu.mp3'
-    const img = './Menu2.jpg';
-    const d = new Date(new Date + 3600000);
-    const locale = 'es-ES';
-    const week = d.toLocaleDateString(locale, {weekday: 'long'});
-    const date = d.toLocaleDateString(locale, {day: '2-digit', month: '2-digit', year: 'numeric'});
-    const _uptime = process.uptime() * 1000;
-    const uptime = clockString(_uptime);
-    const user = global.db.data.users[m.sender];
-    const {money, joincount} = global.db.data.users[m.sender];
-    const {exp, limit, level, role} = global.db.data.users[m.sender];
-    const rtotalreg = Object.values(global.db.data.users).filter((user) => user.registered == true).length;
-    const rtotal = Object.entries(global.db.data.users).length || '0'
-    const more = String.fromCharCode(8206);
-    const readMore = more.repeat(850);
-    const taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
-    const doc = ['pdf', 'zip', 'vnd.openxmlformats-officedocument.presentationml.presentation', 'vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'vnd.openxmlformats-officedocument.wordprocessingml.document'];
-
- await conn.sendMessage(m.chat, { react: { text: '🌥', key: m.key } })
-
-
-const document = doc[Math.floor(Math.random() * doc.length)];
- const str = `🍓 𝙄𝙣𝙨𝙩𝙖𝙡𝙖𝙘𝙞𝙤𝙣 𝘼𝙪𝙩𝙤𝙢𝙖𝙩𝙞𝙘𝙖 (𝚃𝙴𝚁𝙼𝚄𝚇)
-   
-➪ termux-setup-storage
-
-➪ apt update -y && yes | apt upgrade && pkg install -y bash wget mpv && wget -O - https://raw.githubusercontent.com/diegojadibot/SakuraBotLite-MD/master/sakura.sh | bash
-
-🦋 𝙄𝙣𝙨𝙩𝙖𝙡𝙖𝙘𝙞𝙤𝙣 𝙈𝙖𝙣𝙪𝙖𝙡 (𝚃𝙴𝚁𝙼𝚄𝚇) 🍓
-
-➪ cd && termux-setup-storage
-
-➪ apt-get update -y && apt-get upgrade -y
-
-➪ pkg install -y git nodejs ffmpeg imagemagick && pkg install yarn 
-
-➪ git clone https://github.com/diegojadibot/SakuraBotLite-MD.git && cd SakuraBotLite-MD
-
-➪ yarn install
-
-➪ npm install
-
-➪ npm update
-
-➪ npm start
-
-🟢 𝐀𝐜𝐭𝐢𝐯𝐚𝐫 𝐄𝐥 𝐁𝐨𝐭 🟢
-
-➪ cd
-
-➪ cd SakuraBotLite-MD
-
-➪ npm start
-
-💖 𝙊𝙗𝙩𝙚𝙣𝙚𝙧 𝙊𝙩𝙧𝙤 𝙌𝙧 😻
-
-➪ cd SakuraBotLite-MD
-
-➪ rm -rf SakuraBotSession
-
-➪ npm start
-
-🟢 (𝙲𝙾𝙼𝙰𝙽𝙳𝙾𝚂 1 𝙿𝙾𝚁 1) 🦋
-    
-    🍓 𝑆𝑖 𝑇𝑖𝑒𝑛𝑒𝑠 𝐷𝑢𝑑𝑎 𝑆𝑜𝑏𝑟𝑒 𝑀𝑖 𝐶𝑟𝑒𝑎𝑑𝑜𝑟 𝑂 𝐷𝑒𝑙 𝐵𝑜𝑡 𝐶𝑜𝑛𝑡𝑎𝑐𝑡𝑎𝑙𝑜 𝐸𝑠𝑐𝑟𝑖𝑏𝑒: #𝑐𝑟𝑒𝑎𝑑𝑜𝑟 ⚓`.trim();     if (m.isGroup) { 
- // await conn.sendFile(m.chat, vn, 'menu.mp3', null, m, true, { type: 'audioMessage', ptt: true})
-      const fkontak2 = {'key': {'participants': '0@s.whatsapp.net', 'remoteJid': 'status@broadcast', 'fromMe': false, 'id': 'Halo'}, 'message': {'contactMessage': {'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}, 'participant': '0@s.whatsapp.net'};
-      conn.sendMessage(m.chat, {image: pp, caption: str.trim(), mentions: [...str.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net')}, {quoted: m});
-    } else {
-      // await conn.sendFile(m.chat, vn, 'menu.mp3', null, m, true, { type: 'audioMessage', ptt: true})
-      const fkontak2 = {'key': {'participants': '0@s.whatsapp.net', 'remoteJid': 'status@broadcast', 'fromMe': false, 'id': 'Halo'}, 'message': {'contactMessage': {'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}, 'participant': '0@s.whatsapp.net'};
-      conn.sendMessage(m.chat, {image: pp, caption: str.trim(), mentions: [...str.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net')}, {quoted: fkontak2});
-    }
-  } catch {
-    conn.reply(m.chat, '*[ ℹ️ ] Este menu tiene un error interno, por lo cual no fue posible enviarlo.*', m);
-  }
-};
-handler.command = /^(instalarbot|descargarbot)$/i;
-handler.register = true
-handler.exp = 50;
-handler.fail = null;
-export default handler;
-function clockString(ms) {
-  const h = isNaN(ms) ? '--' : Math.floor(ms / 3600000);
-  const m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60;
-  const s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60;
-  return [h, m, s].map((v) => v.toString().padStart(2, 0)).join(':');
+//import { generateWAMessageFromContent } from '@adiwajshing/baileys'
+let { generateWAMessageFromContent } = (await import(global.baileys)).default 
+let handler  = async (m, { conn }) => {
+let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
+let texto = `🥀 *𝑰𝒏𝒔𝒕𝒂𝒍𝒂𝒄𝒊𝒐𝒏 𝒅𝒆 𝑻𝒉𝒆-𝑴𝒊𝒆𝑩𝒐𝒕-𝑴𝑫𝑽2* 🥀
+𝐻𝑜𝑙𝑎 𝑐𝑜𝑚𝑜 𝑒𝑠𝑡𝑎 𝑢𝑠𝑢𝑎𝑟𝑖@ 𝑑𝑒𝑙 𝑏𝑜𝑡 𝑝𝑎𝑟𝑎 𝑖𝑛𝑠𝑡𝑎𝑙𝑎𝑟 𝑒𝑠𝑡𝑒 𝑏𝑜𝑡 𝑒𝑠 𝑛𝑒𝑐𝑒𝑠𝑎𝑟𝑖𝑜 ℎ𝑎𝑏𝑙𝑎𝑟 𝑐𝑜𝑛 𝑚𝑖 𝑐𝑟𝑒𝑑𝑜𝑟𝑎 𝑝𝑎𝑟𝑎 𝑒𝑠𝑡𝑒 𝑝𝑟𝑜𝑐𝑒𝑠𝑜 𝑎𝑞𝑢𝑖 𝑡𝑒 𝑑𝑒𝑗𝑜 𝑠𝑢 𝑐𝑜𝑛𝑡𝑎𝑐𝑡𝑜 , 𝑓𝑎𝑣𝑜𝑟 𝑐𝑜𝑛𝑡𝑎𝑐𝑡𝑎𝑟 𝑠𝑜𝑙𝑜 𝑡𝑒𝑚𝑎 𝑑𝑒𝑙 𝑏𝑜𝑡
+𝐍𝐨𝐦𝐛𝐫𝐞: 𝐒𝐚𝐤𝐮𝐫𝐚-𝐎𝐅𝐂
+𝐍𝐮𝐦𝐞𝐫𝐨: wa.me/595987138033
+` 
+let aa = { quoted: m, userJid: conn.user.jid }
+let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: texto, contextInfo: { externalAdReply: { title: '🌺𝑻𝒉𝒆-𝑴𝒊𝒆𝑩𝒐𝒕-𝑴𝑫𝑽2🌺', body: null, thumbnail: imagen1, sourceUrl: 'https://youtube/@AdrianOficial905' }, mentionedJid: [m.sender] }}}, aa)
+conn.relayMessage(m.chat, prep.message, { messageId: prep.key.id, mentions: [m.sender] })  
 }
+handler.command = /^(instalarbot)/i
+export default handler
+
+/*
+//LOS BOTONES NO FUNKA EL LA NUEVA ACTUALIZACIÓN DE WHATSAPP :(
+let handler  = async (m, { conn, usedPrefix, command }) => {
+const fkontak = {
+	"key": {
+    "participants":"0@s.whatsapp.net",
+		"remoteJid": "status@broadcast",
+		"fromMe": false,
+		"id": "Halo"
+	},
+	"message": {
+		"contactMessage": {
+			"vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`
+		}
+	},
+	"participant": "0@s.whatsapp.net"
+}
+
+let picture = './media/menus/Menu1.jpg'
+await m.reply(`╰⊱🔰⊱ *𝑰𝒏𝒔𝒕𝒂𝒍𝒂𝒄𝒊𝒐𝒏* ⊱🔰⊱╮`)
+let instalar = `*◄┢┅͜͡✇⟬↯ື ►ஜ۩💥۩ஜ◄ ↯ື⟭✇͜͡┅┧►*
+
+💥 𝙔𝙖 𝙥𝙪𝙚𝙙𝙚 𝙞𝙣𝙨𝙩𝙖𝙡𝙖𝙧 𝙖 𝙏𝙝𝙚-𝙇𝙤𝙡𝙞𝘽𝙤𝙩-𝙈𝘿 ❕
+
+*𝙑𝙄𝘿𝙀𝙊 𝘿𝙀 𝙄𝙉𝙎𝙏𝘼𝙇𝘼𝘾𝙄𝙊𝙉*
+*https://youtu.be/gh5NajZOTA8*
+
+✨ *Si necesitas ayuda entra al grupo del bot*
+📌 *${global.nna}*
+
+💛 *Si tienes dudas o necesitas ayuda en el proceso de la instalación puede escribir me a este número (No es Bot el número)*
+
+📲 *Wa.me/5492266466080*
+
+❗ *_Solo para temas de instalación_*
+
+───────•••───────`
+
+conn.sendButton(m.chat, instalar, `✨ 𝙍𝙀𝙌𝙐𝙄𝙎𝙄𝙏𝙊𝙎 𝙋𝘼𝙍𝘼 𝙇𝘼 𝙄𝙉𝙎𝙏𝘼𝙇𝘼𝘾𝙄𝙊𝙉 ✨
+
+✅ _1 GB de almacenamiento_
+✅ _Aplicación Termux (actualizada)_
+✅ _Un WhatsApp recomiendo el WhatsApp normal_
+✅ _Un número virtual (si es ofc mejor)_
+✅ _2 dispositivos o una PC para escanear_
+
+───────•••───────
+
+✨ 𝙂𝙄𝙏𝙃𝙐𝘽 > 𝙍𝙀𝙋𝙊𝙎𝙄𝙏𝙊𝙍𝙄𝙊
+*_Visita mí repositorio 😸 para más información, si te agrada el Bot apoya me con una ⭐️ ¡Gracias!_*
+
+${md}
+
+───────•••───────
+
+📌 *𝙋𝘼𝙎𝙊 𝙋𝘼𝙍𝘼 𝙄𝙉𝙎𝙏𝘼𝙇𝘼𝙍 𝙀𝙇 𝘽𝙊𝙏 𝙀𝙇 𝙏𝙀𝙍𝙈𝙐𝙓*
+📌 *𝙊𝙋𝘾𝙄𝙊𝙉: 1 𝙂𝙄𝙏𝙃𝙐𝘽*
+
+🔸 termux-setup-storage
+🔸 apt update
+🔸 pkg upgrade
+🔸 pkg install git -y
+🔸 pkg install nodejs -y
+🔸 pkg install ffmpeg -y
+🔸 pkg install imagemagick -y
+🔸 git clone https://github.com/elrebelde21/The-LoliBot-MD
+🔸 cd The-LoliBot-MD
+🔸 npm install
+🔸 ls
+🔸 npm start
+
+📌 *𝙊𝙋𝘾𝙄𝙊𝙉: 2 𝘼𝙍𝘾𝙃𝙄𝙑𝙊*
+*https://youtu.be/i1xjB4bmYCc*
+
+🔸 termux-setup-storage
+🔸 apt update 
+🔸 pkg upgrade 
+🔸 pkg install git -y
+🔸 pkg install nodejs -y
+🔸 pkg install ffmpeg -y
+🔸 pkg install imagemagick -y
+🔸 pkg install yarn
+🔸 cd storage/downloads/Lolibot
+🔸 ls
+🔸 npm start
+
+───────•••───────
+
+📌 𝗜𝗡𝗦𝗧𝗔𝗟𝗔𝗥 𝗘𝗡 𝗕𝗢𝗫𝗠𝗜𝗡𝗘
+
+*𝙏𝙝𝙚-𝙇𝙤𝙡𝙞𝘽𝙤𝙩-𝙈𝘿 : 𝘽𝙤𝙭𝙈𝙞𝙣𝙚*
+*_https://youtu.be/wWyBHtKzx9Q_*
+
+_Pagina Oficial_ 
+_https://boxmineworld.com_
+
+_Panel_
+_https://panel.boxmineworld.com_
+
+───────•••───────
+
+📌 𝗜𝗡𝗦𝗧𝗔𝗟𝗔𝗥 𝗘𝗡 𝙍𝙀𝙋𝙇𝙄𝙏 
+
+*𝙏𝙝𝙚-𝙇𝙤𝙡𝙞𝘽𝙤𝙩-𝙈𝘿 : 𝙍𝙀𝙋𝙇𝙄𝙏*
+https://youtu.be/SMjCcfuyWQE
+
+_Pagina Oficial_ 
+https://replit.com/
+
+───────•••───────
+
+
+*◄┢┅͜͡✇⟬↯ື ►ஜ۩💥۩ஜ◄ ↯ື⟭✇͜͡┅┧►*\n\n💥 INFO EXTRA 💥\n➤ Se sugiere leer el archivo README.md \n➤ Bot compartible con WhatsApp multi device \n➤ Para habilitar el /añadir y el /sacar usa /enable restrict \n- Puede ocasionar que el numero se vaya a soporte \n➤ Cualquier cosa hablame solo por tema del bot🔰🤖\nSaludos 🔰🤖\n\n${wm}`, picture, [
+['𝘾𝙪𝙚𝙣𝙩𝙖𝙨 𝙊𝙛𝙞𝙘𝙞𝙖𝙡𝙚𝙨  ✅', '.cuentasgb']], fkontak, m)}
+
+handler.command = /^(instalarbot|instalargatabot|instalargata|procesobot|botproceso|procesodelbot|botinstall|installbot)/i
+export default handler
+*/

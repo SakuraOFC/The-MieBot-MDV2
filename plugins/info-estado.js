@@ -1,38 +1,41 @@
-const handler = async (m, {conn}) => {
-  try {
-    const pp = imagen6;
-    const img = await(await fetch('https://images3.alphacoders.com/125/1251707.png')).buffer();
-    const _uptime = process.uptime() * 1000;
-    const uptime = clockString(_uptime);
-    const taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
-    await conn.sendMessage(m.chat, { react: { text: '🤠', key: m.key } })
-    const str = `┏✧ » ◇ « ✧ » ✦ « ✧ » ◇ « ✧
-┃⍣ 𝙎𝙖𝙠𝙪𝙧𝙖𝘽𝙤𝙩𝙇𝙞𝙩𝙚-𝙈𝘿✨️🌻
-┃
-┃⍣👋🏻𝘏𝘰𝘭𝘢: ${taguser}
-┃
-┃⍣ *ꨄ︎ ⏳️ 𝘈𝘤𝘵𝘪𝘷𝘰:* ${uptime}
-┃⍣ *ꨄ︎ ✅ 𝘉𝘰𝘵 𝘜𝘴𝘰 𝘗𝘶𝘣𝘭𝘪𝘤𝘰*
-┃⍣ *ꨄ︎ 🦁 𝘖𝘸𝘯𝘦𝘳: Diego*
-┃⍣ *ꨄ︎ 🔗 𝘊𝘶𝘦𝘯𝘵𝘢𝘴 𝘖𝘧𝘤:* https://atom.bio/sakuralite
-╰✧ » ◇ « ✧ » ✦ « ✧ » ◇ « ✧`.trim();
-    if (m.isGroup) {
-      conn.sendMessage(m.chat, {text: str.trim(), mentions: [...str.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net'), contextInfo: {forwardingScore: 9999999, isForwarded: true, mentionedJid: [...str.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net'), "externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "renderLargerThumbnail": true, "title": global.titulowm, "containsAutoReply": true, "mediaType": 1, "thumbnail": pp, "mediaUrl": `https://atom.bio/sakuralite`, "sourceUrl": `https://atom.bio/sakuralite`}}}, {quoted: m});
-    } else {
-      const fkontak2 = {'key': {'participants': '0@s.whatsapp.net', 'remoteJid': 'status@broadcast', 'fromMe': false, 'id': 'Halo'}, 'message': {'contactMessage': {'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}, 'participant': '0@s.whatsapp.net'};
-      conn.sendMessage(m.chat, {text: str.trim(), mentions: [...str.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net'), contextInfo: {forwardingScore: 9999999, isForwarded: true, mentionedJid: [...str.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net'), "externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "renderLargerThumbnail": true, "title": global.titulowm, "containsAutoReply": true, "mediaType": 1, "thumbnail": pp, "mediaUrl": `https://atom.bio/sakuralite`, "sourceUrl": `https://atom.bio/sakuralite`}}}, {quoted: fkontak2});
-    }
-  } catch {
-  }
-};
-handler.help = ['estado'];
-handler.tags = ['main'];
-handler.command = /^(estado|status|estate|state|stado|stats|runtime|uptime)$/i;
-export default handler;
-function clockString(ms) {
-  const d = isNaN(ms) ? '--' : Math.floor(ms / 86400000);
-  const h = isNaN(ms) ? '--' : Math.floor(ms / 3600000) % 24;
-  const m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60;
-  const s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60;
-  return [`\n│ *=> 💥 ` + d, ' Día(s)* ', `\n│ *=> 💫 ` + h, ' Hora(s)* ', `\n│ *=> 💠 ` + m, ' Minuto(s)* ', `\n│ *=> ♦ ` + s, ' Segundo(s)* '].map((v) => v.toString().padStart(2, 0)).join('');
+/**
+POR FAVOR TENGAN LA AMABILIDAD Y BONDAD DE NO CAMBIAR MÍNIMAMENTE LOS CRÉDITOS DE LOLIBOT-MD, 
+SI VAS A AÑADIR TUS DATOS O CRÉDITOS, ESTA BIEN. PERO NO QUITEN LOS QUE YA ESTAN DE LOLIBOT-MD, GRACIAS 
+**/
+let handler = async (m, { conn, command, usedPrefix }) => {
+let picture = './media/menus/Menu1.jpg'
+let name = await conn.getName(m.sender)
+let usuario = `${m.sender.split("@")[0]}`
+let aa = usuario + '@s.whatsapp.net'
+let _uptime = process.uptime() * 1000
+let _muptime
+if (process.send) { process.send('uptime')
+_muptime = await new Promise(resolve => { process.once('message', resolve) 
+setTimeout(resolve, 1000) }) * 1000}
+let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
+let uptime = clockString(_uptime)
+let estado = `${pickRandom([`*┌───⊷ 🌺 *𝑻𝒉𝒆-𝑴𝒊𝒆𝑩𝒐𝒕-𝑴𝑫𝑽2* 🌺\n┆ *=> Bot activo ✅*\n┆┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┆ *=> Bot uso público ✅️*\n┆┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈\n┆=> 𝘼𝙘𝙩𝙞𝙫𝙤 𝙙𝙪𝙧𝙖𝙣𝙩𝙚\n┆=> ${uptime} ✅\n╰──────────────────`,`𝐓𝐡𝐞-𝐌𝐢e𝐁𝐨𝐭-𝐌𝐃𝑽2 𝐴𝑐𝑡𝑖𝑣𝑜 𝑑𝑒𝑠𝑑𝑒: ${uptime}`])}
+`.trim()
+await conn.sendMessage(m.chat, {text: estado, mentions: [m.sender]}, {quoted: fkontak})
+/*await conn.reply(m.chat, `┌───⊷ *ミ🤖 Estado del Bot 🤖彡*
+┆ *=> Bot activo ✅*
+┆┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┆ *=> Bot uso público ✅️*
+┆┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┆=> 𝘼𝙘𝙩𝙞𝙫𝙤 𝙙𝙪𝙧𝙖𝙣𝙩𝙚
+┆=> ${uptime} ✅
+╰──────────────────`, fkontak, { mentions: [aa,] })*/
 }
+handler.help = ['estado']
+handler.tags = ['main']
+handler.command = /^(estado|status|estate|state|stado|stats|botstat(us)?)$/i
+export default handler
+function pickRandom(list) {
+    return list[Math.floor(Math.random() * list.length)]
+}
+
+function clockString(ms) {
+let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
+let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
+let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
+return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}

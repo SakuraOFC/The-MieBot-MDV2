@@ -25,40 +25,18 @@ const handler = async (m, {conn, usedPrefix, usedPrefix: _p, __dirname, text, is
 
 
 const document = doc[Math.floor(Math.random() * doc.length)];
- const str = `╭✨️⸽⃕𝕾𝖆𝖐𝖚𝖗𝖆-𝕭𝖔𝖙-𝕷𝖎𝖙𝖊-𝕸𝕯🍁⃨፝⃕✰*
-┃➸ 𝕾𝖆𝖐𝖚𝖗𝖆-𝕭𝖔𝖙-𝕷𝖎𝖙𝖊-𝕸𝕯🍓
-┃➸ 🍓𝖢𝗈𝗅𝖺𝖻𝗈𝗋𝖺𝖽𝗈𝗋𝖾𝗌
-╰◆━━━━━━◆❃◆━━━━━━◆
-
-*╭✨️⸽⃕𝗥𝗲𝗽𝗼𝘀𝗶𝘁𝗼𝗿𝗶𝗼𝘀 𝗚𝗶𝘁𝗵𝘂𝗯🍁⃨፝⃕✰*
-┃✣➸ 𝖣𝗂𝖾𝗀𝗈:
-┃ https://github.com/diegojadibot
-┃
-┃✣➸ 𝖠𝗓𝖺𝗆𝗂:
-┃ https://github.com/AzamiJs
-┃
-┃✣➸ 𝖤𝗇𝖽𝖾𝗋:
-┃ https://github.com/Ender-GB-Isis777
-┃
-┃✣➸ 𝖬𝖺𝗋𝗂𝗈:
-┃ https://github.com/elrebelde21
-┃
-╰◆━━━━━━◆❃◆━━━━━━◆
-
-╭✨️⸽⃕𝗡𝘂𝗺𝗲𝗿𝗼𝘀 - 𝗖𝗿𝗲𝗮𝗱𝗼𝗿𝗲𝘀🍁⃨፝⃕✰ 
-┋➸ 𝖣𝗂𝖾𝗀𝗈: 
-┋@573013482814
-┋
-┋➸ 𝖠𝗓𝖺𝗆𝗂: 
-┋@5217294888993
-┋
-┋➸ 𝖬𝖺𝗋𝗂𝗈: 
-┋@5492266466080
-┋
-┋➸ 𝖤𝗇𝖽𝖾𝗋: 
-┋@50558124470
-┋
-╰◈ ━━━━━━━ ⸙ ━━━━━━━`.trim();     if (m.isGroup) { 
+ const str = `*✿︎𝐂𝐨𝐥𝐚𝐛𝐨𝐫𝐚𝐝𝐨𝐫𝐞𝐬✿*
+❁❁❁❁❁❁❁❁❁❁❁❁❁❁❁❁❁༆
+❁༄𝑇ℎ𝑒-𝐷𝑖𝑜𝑠𝐵𝑜𝑡-𝑀𝐷
+❁
+❁ https://github.com/The-DiosBot-MD 
+❁
+❁༄𝐶𝑜𝑛𝑡𝑎𝑐𝑡𝑜
+❁
+❁ Wa.me/595976126756
+❁ 
+❁❁❁❁❁❁❁❁❁❁❁❁❁❁❁❁❁༆
+ `.trim();     if (m.isGroup) { 
  // await conn.sendFile(m.chat, vn, 'menu.mp3', null, m, true, { type: 'audioMessage', ptt: true})
       const fkontak2 = {'key': {'participants': '0@s.whatsapp.net', 'remoteJid': 'status@broadcast', 'fromMe': false, 'id': 'Halo'}, 'message': {'contactMessage': {'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`}}, 'participant': '0@s.whatsapp.net'};
       conn.sendMessage(m.chat, {image: pp, caption: str.trim(), mentions: [...str.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net')}, {quoted: m});

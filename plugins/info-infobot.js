@@ -1,87 +1,83 @@
-import { generateWAMessageFromContent } from "@whiskeysockets/baileys";
-import os from "os";
-import util from "util";
-import sizeFormatter from "human-readable";
-import MessageType from "@whiskeysockets/baileys";
-import fs from "fs";
-import { performance } from "perf_hooks";
-const handler = async (m, { conn, usedPrefix }) => {
-  const _uptime = process.uptime() * 1000;
-  const uptime = clockString(_uptime);
-  const totalreg = Object.keys(global.db.data.users).length;
-  const chats = Object.entries(conn.chats).filter(
-    ([id, data]) => id && data.isChats,
-  );
-  const groupsIn = chats.filter(([id]) => id.endsWith("@g.us"));
-  const groups = chats.filter(([id]) => id.endsWith("@g.us"));
-  const used = process.memoryUsage();
-  const { restrict, antiCall, antiprivado, modejadibot } =
-    global.db.data.settings[conn.user.jid] || {};
-  const { autoread, gconly, pconly, self } = global.opts || {};
-  const old = performance.now();
-  const neww = performance.now();
-  const speed = neww - old;
-    await conn.sendMessage(m.chat, { react: { text: '🥀', key: m.key } })
-  const info = `
+import os from 'os'
+import util from 'util'
+import sizeFormatter from 'human-readable'
+let MessageType =  (await import(global.baileys)).default
+import fs from 'fs'
+import { performance } from 'perf_hooks'
+let handler = async (m, { conn, usedPrefix }) => {
+let _uptime = process.uptime() * 1000
+let uptime = clockString(_uptime) 
+let totalreg = Object.keys(global.db.data.users).length
+const chats = Object.entries(conn.chats).filter(([id, data]) => id && data.isChats)
+const groupsIn = chats.filter(([id]) => id.endsWith('@g.us'))
+const groups = chats.filter(([id]) => id.endsWith('@g.us'))
+const used = process.memoryUsage()
+const cpus = os.cpus().map(cpu => {
+    cpu.total = Object.keys(cpu.times).reduce((last, type) => last + cpu.times[type], 0)
+    return cpu
+  })
+const cpu = cpus.reduce((last, cpu, _, { length }) => {
+    last.total += cpu.total
+    last.speed += cpu.speed / length
+    last.times.user += cpu.times.user
+    last.times.nice += cpu.times.nice
+    last.times.sys += cpu.times.sys
+    last.times.idle += cpu.times.idle
+    last.times.irq += cpu.times.irq
+    return last
+  }, {
+    speed: 0,
+    total: 0,
+    times: {
+      user: 0,
+      nice: 0,
+      sys: 0,
+      idle: 0,
+      irq: 0
+    }
+  })
+const { restrict } = global.db.data.settings[conn.user.jid] || {}
+const { autoread } = global.opts
+let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
+let pp = './media/menus/Menu1.jpg'
+let vn = './media/infobot.mp3'
+let name = await conn.getName(m.sender)
+let old = performance.now()
+  //await m.reply('_Realizando test_')
+  let neww = performance.now()
+  let totaljadibot = [...new Set([...global.conns.filter(conn => conn.user && conn.state !== 'close').map(conn => conn.user)])]
+  let speed = neww - old
 
-╭━━━━━━･❪ ❁ ❫ ･━━━━━━
-│➸ *⏰️Actividad*
-│➸ *${uptime}*
-│
-│•°•°•°•°•°•°•°•°•°•°•°•°•°•°•°•
-│
-│➸ *🌻Chats*
-│➸ 𝘊𝘩𝘢𝘵𝘴 𝘗𝘳𝘪𝘷𝘢𝘥𝘰𝘴: *${chats.length - groups.length}*
-│➸ 𝘊𝘩𝘢𝘵𝘴 𝘋𝘦 𝘎𝘳𝘶𝘱𝘰𝘴: *${groups.length}* 
-│➸ 𝘊𝘩𝘢𝘵𝘴 𝘛𝘰𝘵𝘢𝘭𝘦𝘴: *${chats.length}* 
-│
-│•°•°•°•°•°•°•°•°•°•°•°•°•°•°•°•
-│
-│➸ 𝙎𝙖𝙠𝙪𝙧𝙖𝘽𝙤𝙩𝙇𝙞𝙩𝙚-𝙈𝘿🌻✨️
-╰━━━━━━･❪ ❁ ❫ ･━━━━━━❖`.trim();
-  const doc = [
-    "pdf",
-    "zip",
-    "vnd.openxmlformats-officedocument.presentationml.presentation",
-    "vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-    "vnd.openxmlformats-officedocument.wordprocessingml.document",
-  ];
-  const document = doc[Math.floor(Math.random() * doc.length)];
-  const Message = {
-    document: { url: `https://github.com/diegojadibot/SakuraBotLite-MD` },
-    mimetype: `application/${document}`,
-    fileName: `「 𝘚𝘢𝘬𝘶𝘳𝘪𝘵𝘢𝘉𝘰𝘵🦁 」`,
-    fileLength: 99999999999999,
-    pageCount: 200,
-    contextInfo: {
-      forwardingScore: 200,
-      isForwarded: true,
-      externalAdReply: {
-        mediaUrl: "https://github.com/diegojadibot/SakuraBotLite-MD",
-        mediaType: 2,
-        previewType: "pdf",
-        title: "Tᴜ Mᴇᴊᴏʀ Bᴏᴛ!",
-        body: wm,
-        thumbnail: imagen6,
-        sourceUrl: "https://atom.bio/sakuralite",
-      },
-    },
-    caption: info,
-    footer: wm,
-    headerType: 6,
-  };
-  conn.sendMessage(m.chat, Message, { quoted: m });
-};
-handler.help = ["infobot", "speed"];
-handler.tags = ["info", "tools"];
-handler.command = /^(ping|speed|infobot)$/i;
-handler.register = true
-export default handler;
+let info = `╭─────[ *INFO DEL BOT* ]────✧
+├ 👸 *CREADORA:* Sakura-OFC
+├ #️⃣ *CONTACTO:* *wa.me/595987138033*
+├ ✅ *VERSION ACTUAL:* ${vs}
+├ 🎳 *PREFIJO:* *${usedPrefix}*
+├ 🔐 *CHATS PRIVADO:* *${chats.length - groups.length}*
+├ 🦜 *CHATS DE GRUPOS:* *${groups.length}* 
+├ 💡 *CHATS EN TOTAL:* *${chats.length}* 
+├ 🚀 *ACTIVIDAD:* *${uptime}*
+├ 🎩 *USUARIOS:* *${totalreg}*
+├ 🐢 *VELOCIDAD:* *${speed}*   
+├ 🌎 *MODO:* ${global.db.data.settings[conn.user.jid].self ? '*Privado*' : '*Público*'}
+├ 💬 *ANTIPRIVADO:* ${global.db.data.settings[conn.user.jid].antiprivado ? '*Activado ✔*' : '*Desactivado ✘*'}
+├ 📵 *ANTILLAMADA:* ${global.db.data.settings[conn.user.jid].antiCall ? '*Activado ✔*' : '*Desactivado*'}
+├ 🤖 *BOTEMPORAL:* *${global.db.data.settings[conn.user.jid].temporal ? 'Activado ✔' : 'Desactivado ✘'}*
+├ ☑️ *AUTOREAD:*  ${autoread ? '*Activado ✔*' : '*Desactivado ✘*'}   
+├ 🤖 *BOTS SECUNDARIOS ACTIVOS:* *${totaljadibot.length}*
+├ ⛔ *RESTRICT:* ${restrict ? '*Activado ✔*' : '*Desactivado ✘*'} 
+╰────────────···`
+await conn.sendMessage(m.chat, {text: info}, {quoted: fkontak});
+conn.sendFile(m.chat, vn, 'infobot.mp3', null, m, true, { type: 'audioMessage', ptt: true, sendEphemeral: true })
+}
+handler.help = ['infobot']
+handler.tags = ['info', 'tools']
+handler.command = /^(infobot|informacionbot|infogata|informacióngata|informaciongata)$/i
+export default handler
 
 function clockString(ms) {
-  const h = Math.floor(ms / 3600000);
-  const m = Math.floor(ms / 60000) % 60;
-  const s = Math.floor(ms / 1000) % 60;
-  console.log({ ms, h, m, s });
-  return [h, m, s].map((v) => v.toString().padStart(2, 0)).join(":");
-}
+let h = Math.floor(ms / 3600000)
+let m = Math.floor(ms / 60000) % 60
+let s = Math.floor(ms / 1000) % 60
+console.log({ms,h,m,s})
+return [h, m, s].map(v => v.toString().padStart(2, 0) ).join(':')}

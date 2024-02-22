@@ -18,7 +18,7 @@ export async function before(m, {conn, isAdmin, isBotAdmin}) {
       if (m.text.includes(linkThisGroup)) return !0;
     }
     await this.sendMessage(m.chat, {text: `*⚓𝑅𝑎𝑡𝑎 𝐴𝑐𝑎𝑏𝑎𝑠𝑡𝑒𝑠 𝐷𝑒 𝑅𝑜𝑚𝑝𝑒𝑟 𝐿𝑎 𝑅𝑒𝑔𝑙𝑎 𝐷𝑒 𝐸𝑠𝑡𝑒 𝐺𝑟𝑢𝑝𝑜, 𝐸𝑙 𝐺𝑟𝑢𝑝𝑜 𝑇𝑖𝑒𝑛𝑒 𝐸𝑙 𝐴𝑛𝑡𝑖𝑙𝑖𝑛𝑘 𝑃𝑜𝑟 𝑀𝑜𝑡𝑖𝑣𝑜 𝑃𝑟𝑜𝑐𝑒𝑑𝑜 𝐴 𝐸𝑙𝑖𝑚𝑖𝑛𝑎𝑟𝑡𝑒. 𝐴𝑑𝑖𝑜𝑠 𝑅𝑎𝑡𝑎👋🏻...!!*`, mentions: [m.sender]}, {quoted: m});
-    if (!isBotAdmin) return m.reply('*𝑆𝑎𝑘𝑢𝑟𝑎𝐵𝑜𝑡𝐿𝑖𝑡𝑒 𝑁𝑜 𝐸𝑠 𝐴𝑑𝑚𝑖𝑛 𝑁𝑜 𝑃𝑢𝑒𝑑𝑜 𝐸𝑙𝑖𝑚𝑖𝑛𝑎𝑟 𝐴 𝐿𝑎𝑠 𝑅𝑎𝑡𝑎𝑠⚓*');
+    if (!isBotAdmin) return m.reply('*𝐸𝑙 𝐵𝑜𝑡 𝑁𝑜 𝐸𝑠 𝐴𝑑𝑚𝑖𝑛 𝑁𝑜 𝑃𝑢𝑒𝑑𝑜 𝐸𝑙𝑖𝑚𝑖𝑛𝑎𝑟 𝐴 𝐿𝑎𝑠 𝑅𝑎𝑡𝑎𝑠⚓*');
     if (isBotAdmin && bot.restrict) {
       await conn.sendMessage(m.chat, {delete: {remoteJid: m.chat, fromMe: false, id: bang, participant: delet}});
       const responseb = await conn.groupParticipantsUpdate(m.chat, [m.sender], 'remove');
