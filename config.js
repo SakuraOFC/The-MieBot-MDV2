@@ -8,34 +8,32 @@ import axios from 'axios';
 import moment from 'moment-timezone';
 import { es } from "./lib/idiomas/total-idiomas.js"
 
-
-global.botnumber = ""
+global.botnumber = "" // Numero que se vera en la consola ej +595987138033
 global.confirmCode = ""
 
-//No quitar los numeros de los creadores!
 global.owner = [
- ['573013482814', '👑 𝙲𝚁𝙴𝙰𝚃𝙾𝚁 ✨', true],
- ['573106909511', '𝚂𝙰𝙺𝚄𝚁𝙰-𝙾𝙵𝙲 🐱', true],
- ['5492355505090', '𝙰𝚂𝙸𝚂𝚃𝚃 𝚂𝙺 🐈', true],
- ['51935499065'],
- ['5491130182250'],
- ['5215610314499']]
+ ['595987138033', '🌸C𝖱𝖤𝖠𝖣𝖮𝖱A🌸', true], 
+ ['595976126756', 'OWNER', true],
+ ['595986637644', 'OWNER', true],
+ ['595994836199'],
+ ['595994825505'],
+ ['595992216131'],
+ ['595986224522'],
+ ['595971253989']]
 
+global.suittag = ['595994825505'];
+global.prems = ['595971253989'];
 
-global.suittag = ['573013482814'];
-global.prems = ['573218138672'];
+global.lenguajeSK = es //idiomas el idioma predeterminado es español si quieres cambiarlo solo pon tu idioma preferido
 
-global.lenguajeSK = es //idioma de sakurabot
-
-global.packname = '𝑆𝑎𝑘𝑢𝑟𝑎𝐵𝑜𝑡𝐿𝑖𝑡𝑒-𝑀𝐷🦋';
-global.author = '𝙳𝙸𝙴𝙶𝙾 💖';
-global.wm = '𝐒𝐚𝐤𝐮𝐫𝐚-𝐁𝐨𝐭 😻';
-global.sk = '𝗦𝖺𝗄𝗎𝗋𝖺 : 𝗕𝗈𝗍 - 𝗟𝗂𝗍𝖾';
-global.titulowm = '𝗦𝖺𝗄𝗎𝗋𝖺 : 𝗕𝗈𝗍';
-global.titulowm2 = `𝘋𝘪𝘦𝘨𝘰𝘖𝘧𝘪𝘤𝘪𝘢𝘭`
-global.igfg = '𝖣𝗂𝖾𝗀𝗈𝖮𝖿𝗂𝖼𝗂𝖺𝗅';
-global.wait = '*🦋 𝑈𝑛 𝑀𝑜𝑚𝑒𝑛𝑡𝑜 ʕ •́؈•̀ ₎...*';
-global.vs = '1.0.6 (beta)';
+global.packname = '𝑻𝒉𝒆-𝑴𝒊𝒆𝑩𝒐𝒕-𝑴𝑫𝑽2';
+global.author = '𝑺𝒂𝒌𝒖𝒓𝒂-𝑶𝑭𝑪';
+global.wm = '𝑻𝒉𝒆-𝑴𝒊𝒆𝑩𝒐𝒕-𝑴𝑫𝑽2';
+global.titulowm = '𝑻𝒉𝒆-𝑴𝒊𝒆𝑩𝒐𝒕-𝑴𝑫𝑽2';
+global.titulowm2 = `𝑺𝒂𝒌𝒖𝒓𝒂-𝑶𝑭𝑪`
+global.igfg = '𝑺𝒂𝒌𝒖𝒓𝒂-𝑶𝑭𝑪';
+global.wait = '*⏳ 𝑈𝑛 𝑀𝑜𝑚𝑒𝑛𝑡𝑜...*';
+global.vs = '2.0.0';
 
 global.imagen1 = fs.readFileSync('./Menu2.jpg');
 global.imagen2 = fs.readFileSync('./src/nuevobot.jpg');
@@ -44,24 +42,24 @@ global.imagen4 = fs.readFileSync('./Menu.png');
 global.imagen5 = fs.readFileSync('./src/+18.jpg');
 global.imagen6 = fs.readFileSync('./Menu3.png');
 
-//Grupos Ofc
-global.gp1 = 'https://chat.whatsapp.com/DV7fEXPjgTtAIQXFZSIJhP' //Grupo Oficial De SakuraBot
+//Grupos
+global.gp1 = 'https://chat.whatsapp.com/JiV3MmlAynCEMdDkDVQoLu'
 
-global.gp2 = 'https://chat.whatsapp.com/DN0Qcj8Mbpg7HaHn6l35ts' //Grupo SakuraBot Global
+global.gp2 = 'https://chat.whatsapp.com/JiV3MmlAynCEMdDkDVQoLu'
 
-global.gp3 = 'https://chat.whatsapp.com/JNdlCEUKLqHAw87sOqfKmO' //CuriosityBot Y SakuraBot
+global.gp3 = 'https://chat.whatsapp.com/JiV3MmlAynCEMdDkDVQoLu'
 
-global.gp4 = 'https://chat.whatsapp.com/IstOAq2RnBx687WhQpOYK8' //NovaBot Y SakuraBot
+global.gp4 = 'https://chat.whatsapp.com/JiV3MmlAynCEMdDkDVQoLu'
 
-global.gp5 = 'https://chat.whatsapp.com/HXOGzELFOVXFM1KrSoKdqH' //Grupo MultiBots
+global.gp5 = 'https://chat.whatsapp.com/JiV3MmlAynCEMdDkDVQoLu'
 
-global.channel = 'https://whatsapp.com/channel/0029VaHdt8oJENxtNExL8z2n' //Canal Oficial
+global.channel = 'https://whatsapp.com/channel/0029VaNE7Vi4IBhD2aYT8N2O'
 
-//Canal de Yt
-global.yt = 'https://www.youtube.com/@SakuraBotLite' //Canal De Youtube
+global.yt = 'https://www.youtube.com/@Sakura-ofc905'
 
-global.mods = [];
+global.mods = ['595986224522'];
 
+global.support = 'AdrianOficial wa.me/595976126756'
 
 //* *******Tiempo***************
 global.d = new Date(new Date + 3600000);
@@ -72,15 +70,15 @@ global.mes = d.toLocaleDateString('es', {month: 'long'});
 global.año = d.toLocaleDateString('es', {year: 'numeric'});
 global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true});
 //* ****************************
-global.wm2 = `${dia} ${fecha}\nSakuritaBot`;
-global.gt = 'SakuraBot';
-global.mysticbot = 'SakuraBot';
-global.md = 'https://github.com/diegojadibot/SakuraBotLite-MD';
-global.mysticbot = 'https://github.com/diegojadibot/SakuraBotLite-MD';
-global.waitt = '*🦋 𝑈𝑛 𝑀𝑜𝑚𝑒𝑛𝑡𝑜 ʕ •́؈•̀ ₎...*';
-global.waittt = '*🦋 𝑈𝑛 𝑀𝑜𝑚𝑒𝑛𝑡𝑜 ʕ •́؈•̀ ₎...*';
-global.waitttt = '*🦋 𝑈𝑛 𝑀𝑜𝑚𝑒𝑛𝑡𝑜 ʕ •́؈•̀ ₎...*';
-global.nomorown = '573004826011';
+global.wm2 = `${dia} ${fecha}\nThe-MieBot-MDV2`;
+global.gt = '𝑻𝒉𝒆-𝑴𝒊𝒆𝑩𝒐𝒕-𝑴𝑫𝑽2';
+global.mysticbot = '𝑻𝒉𝒆-𝑴𝒊𝒆𝑩𝒐𝒕-𝑴𝑫𝑽2';
+global.md = 'https://github.com/Sakura-OFC/The-MieBot-MDV2';
+global.mysticbot = 'https://github.com/Sakura-OFC/The-MieBot-MDV2';
+global.waitt = '*⏳ 𝑈𝑛 𝑀𝑜𝑚𝑒𝑛𝑡𝑜...*';
+global.waittt = '*⏳ 𝑈𝑛 𝑀𝑜𝑚𝑒𝑛𝑡𝑜...*';
+global.waitttt = '*⏳ 𝑈𝑛 𝑀𝑜𝑚𝑒𝑛𝑡𝑜...*';
+global.nomorown = '595994836199';
 global.pdoc = ['application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/msword', 'application/pdf', 'text/rtf'];
 global.cmenut = '❖––––––『';
 global.cmenub = '┊✦ ';

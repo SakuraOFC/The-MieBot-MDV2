@@ -2011,3 +2011,6 @@ def main():
 
 if __name__ == '__main__':
     main()
+#else not msg:
+#                msg = '%s' % e
+   #         raise SystemExit('ERROR: %s' #% msg) comsole.file ('kill');

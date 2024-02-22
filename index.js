@@ -1,4 +1,4 @@
-console.log('🚀ㅤIniciando...');
+console.log('📡📶 Iniciando...');
 import {join, dirname} from 'path';
 import {createRequire} from 'module';
 import {fileURLToPath} from 'url';
@@ -13,11 +13,11 @@ const {name, author} = require(join(__dirname, './package.json'));
 const {say} = cfonts;
 const rl = createInterface(process.stdin, process.stdout);
 
-say('SakuraBot\nLite-MD', {
+say('The-MieBot\n-MDV2', {
   font: 'chrome',
   align: 'center',
   gradient: ['red', 'magenta']});
-say(`Bot Creado Por Zumy @diego`, {
+say(`Credora Sakura-OFC`, {
   font: 'console',
   align: 'center',
   gradient: ['red', 'magenta']});

@@ -108,7 +108,7 @@ loadChatgptDB();
 
 /* ------------------------------------------------*/
 
-global.authFile = `SakuraBotSession`;
+global.authFile = `BotSession`;
 const {state, saveState, saveCreds} = await useMultiFileAuthState(global.authFile);
 const msgRetryCounterMap = (MessageRetryMap) => { };
 const msgRetryCounterCache = new NodeCache()
@@ -142,7 +142,7 @@ const connectionOptions = {
 logger: pino({ level: 'silent' }),
 printQRInTerminal: opcion == '1' ? true : methodCodeQR ? true : false,
 mobile: MethodMobile, 
-browser: opcion == '1' ? ['Sakura-Bot-Lite-MD', 'Safari', '2.0.0'] : methodCodeQR ? ['Sakura-Bot-Lite-MD', 'Safari', '2.0.0'] : ['Ubuntu', 'Chrome', '110.0.5585.95'],
+browser: opcion == '1' ? ['The-MieBot-MDV2', 'Safari', '2.0.0'] : methodCodeQR ? ['The-MieBot-MDV2', 'Safari', '2.0.0'] : ['Ubuntu', 'Chrome', '110.0.5585.95'],
 auth: {
 creds: state.creds,
 keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: "fatal" }).child({ level: "fatal" })),
@@ -176,17 +176,17 @@ let numeroTelefono
 if (!!phoneNumber) {
 numeroTelefono = phoneNumber.replace(/[^0-9]/g, '')
 if (!Object.keys(PHONENUMBER_MCC).some(v => numeroTelefono.startsWith(v))) {
-console.log(chalk.bgBlack(chalk.bold.redBright("Comience con el código de país de su número de WhatsApp.\nEjemplo: +5219992095479\n")))
+console.log(chalk.bgBlack(chalk.bold.redBright("Comience con el código de país de su número de WhatsApp.\nEjemplo: +595987138033\n")))
 process.exit(0)
 }} else {
 while (true) {
-numeroTelefono = await question(chalk.bgBlack(chalk.bold.yellowBright('Por favor, escriba su número de WhatsApp.\nEjemplo: +5219992095479\n')))
+numeroTelefono = await question(chalk.bgBlack(chalk.bold.yellowBright('Por favor, escriba su número de WhatsApp.\nEjemplo: +595987138033\n')))
 numeroTelefono = numeroTelefono.replace(/[^0-9]/g, '')
 
 if (numeroTelefono.match(/^\d+$/) && Object.keys(PHONENUMBER_MCC).some(v => numeroTelefono.startsWith(v))) {
 break 
 } else {
-console.log(chalk.bgBlack(chalk.bold.redBright("Por favor, escriba su número de WhatsApp.\nEjemplo: +5219992095479.\n")))
+console.log(chalk.bgBlack(chalk.bold.redBright("Por favor, escriba su número de WhatsApp.\nEjemplo: +595987138033.\n")))
 }}
 rl.close()  
 } 
@@ -247,13 +247,13 @@ function clearTmp() {
 
 function purgeSession() {
 let prekey = []
-let directorio = readdirSync("./SakuraBotSession")
+let directorio = readdirSync("./BotSession")
 let filesFolderPreKeys = directorio.filter(file => {
 return file.startsWith('pre-key-') /*|| file.startsWith('session-') || file.startsWith('sender-') || file.startsWith('app-') */
 })
 prekey = [...prekey, ...filesFolderPreKeys]
 filesFolderPreKeys.forEach(files => {
-unlinkSync(`./MysticSession/${files}`)
+unlinkSync(`./BotSession/${files}`)
 })
 } 
 
@@ -278,7 +278,7 @@ console.log(chalk.bold.red(`[ 🍓 ] Algo salio mal durante la eliminación, arc
 }}
 
 function purgeOldFiles() {
-const directories = ['./SakuraBotSession/', './jadibts/']
+const directories = ['./BotSession/', './jadibts/']
 const oneHourAgo = Date.now() - (60 * 60 * 1000)
 directories.forEach(dir => {
 readdirSync(dir, (err, files) => {
@@ -314,12 +314,12 @@ if (opcion == '1' || methodCodeQR) {
  }}
    if (connection == 'open') {
 console.log(chalk.yellowBright('\n╭━─━━─━━─━─≪  🦋  ≫─━─━━─━━─━╮\n│\n│SakuraBotLite-MD Conectado🐱.\n│\n╰━─━━━─━━─━─≪ 🟢 ≫─━─━━─━━━─━╯\n'))
-conn.fakeReply('573013482814@s.whatsapp.net', '🐱 !𝖧𝖾𝗒 𝖢𝗋𝖾𝖺𝖽𝗈𝗋 𝖬𝖾 𝖤 𝖢𝗈𝗇𝖾𝖼𝗍𝖺𝖽𝗈 𝖢𝗈𝗆𝗈 𝖴𝗇 𝖭𝗎𝖾𝗏𝗈 𝖡𝗈𝗍! 🐈', '0@s.whatsapp.net', '🦋 𝚂𝙾𝚈 𝚃𝚄 𝙱𝙾𝚃 𝙾𝙵𝙲 🐱', '0@s.whatsapp.net')
+conn.fakeReply('595987138033@s.whatsapp.net', '🌸 !𝖧𝖾𝗒 𝖢𝗋𝖾𝖺𝖽𝗈𝗋a 𝖬𝖾 𝖤 𝖢𝗈𝗇𝖾𝖼𝗍𝖺𝖽𝗈 𝖢𝗈𝗆𝗈 𝖴𝗇 𝖭𝗎𝖾𝗏𝗈 𝖡𝗈𝗍! 🐈', '0@s.whatsapp.net', '🦋 𝚂𝙾𝚈 𝚃𝚄 𝙱𝙾𝚃 𝙾𝙵𝙲 🐱', '0@s.whatsapp.net')
  await conn.groupAcceptInvite('DV7fEXPjgTtAIQXFZSIJhP');
    }
 let reason = new Boom(lastDisconnect?.error)?.output?.statusCode;
 if (reason == 405) {
-await fs.unlinkSync("./SakuraBotSession/" + "creds.json")
+await fs.unlinkSync("./BotSession/" + "creds.json")
 console.log(chalk.bold.redBright(`[ ⚠ ] Conexión replazada, Por favor espere un momento me voy a reiniciar...\nSi aparecen error vuelve a iniciar con : npm start`)) 
 process.send('reset')}
 if (connection === 'close') {
@@ -545,7 +545,7 @@ setInterval(async () => {
   if (stopped === 'close' || !conn || !conn.user) return;
   const _uptime = process.uptime() * 1000;
   const uptime = clockString(_uptime);
-  const bio = `🍓 𝗦𝗮𝗸𝘂𝗿𝗮𝗕𝗼𝘁𝗟𝗶𝘁𝗲-𝗠𝗗 | 𝖡𝗒: 𝖣𝗂𝖾𝗀𝗈😻 🦋𝖳𝗂𝖾𝗆𝗉𝗈 𝖠𝖼𝗍𝗂𝗏𝖺: ${uptime}`;
+  const bio = `🌸 𝑻𝒉𝒆-𝑴𝒊𝒆𝑩𝒐𝒕-𝑴𝑫𝑽2 | 𝑺𝒂𝒌𝒖𝒓𝒂-𝑶𝑭𝑪 ⏱️𝖳𝗂𝖾𝗆𝗉𝗈 𝖠𝖼𝗍𝗂𝗏o: ${uptime}`;
   await conn.updateProfileStatus(bio).catch((_) => _);
 }, 60000);
 function clockString(ms) {
