@@ -1,74 +1,36 @@
-import { createHash } from 'crypto'
-let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
-let handler = async function (m, { conn, text, usedPrefix, command }) {
-let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status@broadcast", "fromMe": false, "id": "Halo" }, "message": { "contactMessage": { "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:Sy;Bot;;;\nFN:y\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD` }}, "participant": "0@s.whatsapp.net" }
-  let user = db.data.users[m.sender]
-  let name2 = conn.getName(m.sender)
-  if (user.registered === true) throw `🙌𝙃𝙚𝙮 𝙔𝙖 𝙚𝙨𝙩𝙖 𝙧𝙚𝙜𝙞𝙨𝙩𝙧𝙖𝙙𝙤\n\n✳️𝙌𝙪𝙞𝙚𝙧𝙚 𝙫𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙧𝙚𝙜𝙞𝙨𝙩𝙧𝙖𝙨𝙩𝙚?\n\n𝙐𝙨𝙚 𝙚𝙡 𝙘𝙤𝙢𝙖𝙣𝙙𝙤 𝙥𝙖𝙧𝙖 𝙚𝙡𝙞𝙢𝙞𝙣𝙖𝙧 𝙚𝙡 𝙧𝙚𝙜𝙞𝙨𝙩𝙧𝙤 \n*${usedPrefix}unreg Número de serie*\n𝙨𝙞 𝙣𝙤 𝙧𝙚𝙘𝙪𝙚𝙧𝙙𝙖 𝙨𝙪 𝙣𝙪𝙢𝙚𝙧𝙤 𝙙𝙚 𝙨𝙚𝙧𝙞𝙚, 𝙪𝙨𝙖𝙧\n${usedPrefix}myns`
-  if (!Reg.test(text)) throw `${mg}✳️ 𝙐𝙨𝙤 𝙚𝙡 𝙘𝙤𝙢𝙖𝙣𝙙𝙤: *${usedPrefix + command} nombre.edad*\n📌𝙀𝙟𝙚𝙢𝙥𝙡𝙤 : *${usedPrefix + command}* ${name2}.16`
-  let [_, name, splitter, age] = text.match(Reg)
-  if (!name) throw '✳️ 𝑬𝒍 𝒏𝒐𝒎𝒃𝒓𝒆 𝒏𝒐 𝒑𝒖𝒆𝒅𝒆 𝒆𝒔𝒕𝒂𝒓 𝒗𝒂𝒄𝒊́𝒐'
-  if (!age) throw '✳️ 𝑳𝒂 𝒆𝒅𝒂𝒅 𝒏𝒐 𝒑𝒖𝒆𝒅𝒆 𝒆𝒔𝒕𝒂𝒓 𝒗𝒂𝒄𝒊́𝒂'
-  if (name.length >= 30) throw '✳️ 𝑷𝒇𝒇𝒇, 𝒆𝒍 𝒏𝒐𝒎𝒃𝒓𝒆 𝒆𝒔  𝒍𝒂𝒓𝒈𝒐' 
-  age = parseInt(age)
-  if (age > 100) throw '👴🏻 𝑷𝒂 𝒆𝒔𝒕𝒂 𝒗𝒊𝒆𝒋𝒐𝒔'
-  if (age < 5) throw '🚼  𝑽𝒓𝒈 𝒍𝒐𝒔 𝒃𝒆𝒃𝒆́𝒔 𝒔𝒂𝒃𝒆𝒏 𝒆𝒔𝒄𝒓𝒊𝒃𝒊𝒓 ✍️😳 '
-  user.name = name.trim()
-  user.age = age
-  user.regTime = + new Date
-  user.registered = true
-global.db.data.users[m.sender].money += 400
-global.db.data.users[m.sender].limit += 4
-global.db.data.users[m.sender].exp += 150
-global.db.data.users[m.sender].joincount += 2
-  let sn = createHash('md5').update(m.sender).digest('hex')
-await conn.sendMessage(m.chat, { 
-text: `┌───⊷ *𝐍𝐨𝐦𝐛𝐫𝐞:*
-┆ ${name}
-┆┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┆ *𝐄𝐝𝐚𝐝:*
-┆ ${age} años
-┆┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┆ *𝐁𝐨𝐧𝐨* 
-┆ *$10 𝐃𝐢𝐚𝐦𝐚𝐧𝐭𝐞* 💎
-┆ *$500 𝐜𝐨𝐢𝐧𝐬*
-┆ *$1000 𝐗𝐏*
-┆ *$5 𝐓𝐨𝐤𝐞𝐧𝐬*
-╰──────────────────`, 
-contextInfo:{
-forwardingScore: 9999999,
-isForwarded: true, 
-mentionedJid:[m.sender],
-"externalAdReply": {
-"showAdAttribution": true,
-"renderLargerThumbnail": true,
-"thumbnail": gataImg.getRandom(), 
-"title": `𝐑𝐄𝐆𝐈𝐒𝐓𝐑𝐎 𝐂𝐎𝐌𝐏𝐋𝐄𝐓𝐀𝐃𝐎`, 
-"containsAutoReply": true,
-"mediaType": 1, 
-"mediaUrl": nnn, 
-"sourceUrl": nnn, 
-}
-}
-}, { quoted: fkontak })  
-/* await conn.reply(m.chat, `┌───⊷ *𝐑𝐄𝐆𝐈𝐒𝐓𝐑𝐎 𝐂𝐎𝐌𝐏𝐋𝐄𝐓𝐀𝐃𝐎*
-┆ *𝐍𝐨𝐦𝐛𝐫𝐞:*
-┆ ${name}
-┆┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┆ *𝐄𝐝𝐚𝐝:*
-┆ ${age} años
-┆┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┆ *𝐁𝐨𝐧𝐨* 
-┆ *$4 𝐃𝐢𝐚𝐦𝐚𝐧𝐭𝐞* 💎
-┆ *$400 𝐋𝐨𝐥𝐢𝐜𝐨𝐢𝐧𝐬*
-┆ *$150 𝐗𝐏*
-┆ *$2 𝐓𝐨𝐤𝐞𝐧𝐬*
-╰──────────────────`, , m)*/
-await m.reply(`${sn}`) 
-}
-handler.help = ['daftar', 'register'].map(v => v + ' <nama>.<umur>')
-handler.tags = ['xp']
-
-handler.command = /^(verify|verificar|registrar|reg(ister)?)$/i
-
-export default handler
+import {createHash} from 'crypto';
+const Reg = /\|?(.*)([.|] *?)([0-9]*)$/i;
+const handler = async function(m, {conn, text, usedPrefix, command}) {
+  const user = global.db.data.users[m.sender];
+  const name2 = conn.getName(m.sender);
+  const pp = await conn.profilePictureUrl(m.chat, 'image').catch((_) => global.imagen1);
+  if (user.registered === true) throw `👊😆Hᴇʏ Bᴇʙᴇ́ Yᴀ Esᴛᴀs Rᴇɢɪsᴛʀᴀᴅᴏ, Qᴜɪᴇʀᴇs Rᴇɢɪsᴛʀᴀᴛᴇ Dᴇ Nᴜᴇᴠᴏ?\n\n 📌Usᴇ Esᴛᴇ Cᴏᴍᴀɴᴅᴏ Pᴀʀᴀ Eʟɪᴍɪɴᴀʀ Sᴜ Rᴇɢɪsᴛʀᴏ\n*${usedPrefix}unreg* <Número de serie>`;
+  if (!Reg.test(text)) throw `*⚠️𝘌𝘭 𝘍𝘰𝘳𝘮𝘢𝘵𝘰 𝘌𝘴 𝘐𝘯𝘤𝘰𝘳𝘳𝘦𝘤𝘵𝘰*\n\n*🌴🪁 𝘜𝘴𝘰 𝘋𝘦𝘭 𝘊𝘰𝘮𝘢𝘯𝘥𝘰: ${usedPrefix + command} nombre.edad*\n*🌻🪁 Ejemplo: ${usedPrefix + command} Diego.20*`;
+  let [_, name, splitter, age] = text.match(Reg);
+  if (!name) throw '*👊𝘋𝘦𝘷𝘦𝘴 𝘗𝘰𝘯𝘦𝘳 𝘌𝘭 𝘕𝘰𝘮𝘣𝘳𝘦*';
+  if (!age) throw '*[❗] 𝘓𝘢 𝘌𝘥𝘢𝘥 𝘌𝘴 𝘕𝘦𝘴𝘦𝘴𝘢𝘳𝘪𝘰 𝘗𝘢𝘳𝘢 𝘌𝘭 𝘙𝘦𝘨𝘪𝘴𝘵𝘳𝘰*';
+  if (name.length >= 30) throw '😆𝘞𝘰𝘰 𝘛𝘶 𝘕𝘰𝘮𝘣𝘳𝘦 𝘌𝘴 𝘓𝘢𝘳𝘨𝘰, 𝘜𝘴𝘢 𝘖𝘵𝘳𝘰';
+  age = parseInt(age);
+  if (age > 60) throw '*[❗] 𝘞𝘩𝘢𝘵𝘴,𝘊𝘰𝘮𝘰 𝘝𝘪𝘷𝘦𝘴 𝘉𝘪𝘦𝘫𝘰? 👴🏻*';
+  if (age < 5) throw '*[❗] 𝘊𝘰𝘮𝘰 𝘘𝘶𝘦 𝘜𝘯 𝘉𝘦𝘣𝘦́ 𝘚𝘢𝘣𝘦 𝘜𝘴𝘢𝘳 𝘞𝘩𝘢𝘵𝘴𝘈𝘱𝘱? 😲*';
+  user.name = name.trim();
+  user.age = age;
+  user.regTime = + new Date;
+  user.registered = true;
+  const sn = createHash('md5').update(m.sender).digest('hex');
+  const caption = `╭━━━ • 𝘙𝘦𝘨𝘪𝘴𝘵𝘳𝘰⃨፝⃕✰• ━━━
+┃ *𝑁𝑜𝑚𝑏𝑟𝑒:* ${name}
+┃ *𝐸𝑑𝑎𝑑:* ${age} años
+┃ *𝑁𝑢𝑚𝑒𝑟𝑜 𝑑𝑒 𝑆𝑒𝑟𝑖𝑒:* 
+┃ ${sn}
+◈ ━━━━━━━ ⸙ ━━━━━━━ ◈`;
+  // let author = global.author
+  await conn.sendFile(m.chat, pp, 'mystic.jpg', caption);
+  // conn.sendButton(m.chat, caption, `¡𝚃𝚄 𝙽𝚄𝙼𝙴𝚁𝙾 𝙳𝙴 𝚂𝙴𝚁𝙸𝙴 𝚃𝙴 𝚂𝙴𝚁𝚅𝙸𝚁𝙰 𝙿𝙾𝚁 𝚂𝙸 𝙳𝙴𝚂𝙴𝙰𝚂 𝙱𝙾𝚁𝚁𝙰𝚁 𝚃𝚄 𝚁𝙴𝙶𝙸𝚂𝚃𝚁𝙾 𝙴𝙽 𝙴𝙻 𝙱𝙾𝚃!\n${author}`, [['¡¡𝙰𝙷𝙾𝚁𝙰 𝚂𝙾𝚈 𝚄𝙽 𝚅𝙴𝚁𝙸𝙵𝙸𝙲𝙰𝙳𝙾/𝙰!!', '/profile']], m)
+  global.db.data.users[m.sender].money += 10000;
+  global.db.data.users[m.sender].exp += 10000;
+};
+handler.help = ['verificar'];
+handler.tags = ['xp'];
+handler.command = /^(verify|register|verificar|reg|registrar)$/i;
+export default handler;

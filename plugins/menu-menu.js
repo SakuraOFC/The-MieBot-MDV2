@@ -5,25 +5,34 @@ const handler = async (m, {conn, usedPrefix, usedPrefix: _p, __dirname, text, is
 
   const date = d.toLocaleDateString(locale, {day: 'numeric', month: 'long', year: 'numeric'});
   const {money, joincount} = global.db.data.users[m.sender];
+
+ const rtotalreg = Object.values(global.db.data.users).filter((user) => user.registered == true).length;
+    const rtotal = Object.entries(global.db.data.users).length || '0'
+        const taguser = '@' + m.sender.split('@s.whatsapp.net')[0];
   const {exp, limit, level, role} = global.db.data.users[m.sender];
-  const pp = await conn.profilePictureUrl(conn.user.jid).catch(_ => 'https://telegra.ph/The-MieBot-MD-02-12.png');
+  const pp = await conn.profilePictureUrl(conn.user.jid).catch(_ => 'https://telegra.ph/file/231b618729371a4e30f0e.jpg');
   const fkon = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `status@broadcast` } : {}) }, message: { 'contactMessage': { 'displayName': wm, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${wm},;;;\nFN:${wm},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabell:Ponsel\nEND:VCARD`, 'jpegThumbnail': imagen1, thumbnail: imagen1 ,sendEphemeral: true}}};
     await conn.reply(m.chat, '*𝑬𝒏𝒗𝒊𝒂𝒏𝒅𝒐 𝒇𝒐𝒓𝒎𝒖𝒍𝒂𝒓𝒊𝒐..*',m, { contextInfo:{ forwardingScore: 2022, isForwarded: true, externalAdReply: {title: '𝑯𝒐𝒍𝒂, 𝒒𝒖𝒆 𝒕𝒂𝒍 :D', body: '𝑩𝒐𝒏𝒊𝒕𝒂 𝑱𝒐𝒓𝒏𝒂𝒅𝒂', sourceUrl: global.md, thumbnail: await (await fetch(pp)).buffer() }}})
 //m.react('🍓');
     await conn.sendMessage(m.chat, { react: { text: '🌸', key: m.key } })
   let txt =`*🥀✿︎𝑻𝒉𝒆-𝑴𝒊𝒆𝑩𝒐𝒕-𝑴𝑫𝑽2 ✿︎🥀*
-  
 ➪ 𝑪𝒓𝒆𝒂𝒅𝒐𝒓𝒂: 𝑺𝒂𝒌𝒖𝒓𝒂-𝑶𝑭𝑪
 ➪ 𝑵𝒖𝒎 𝒅𝒆 𝒍𝒂 𝒄𝒓𝒆𝒂𝒅𝒐𝒓𝒂 wa.me/595987138033
 ➪ 𝑵𝒖𝒎 𝒅𝒆𝒍 𝑩𝒐𝒕 𝑶𝒇𝒊𝒄𝒊𝒂𝒍 wa.me/595982216131
-➪ 𝐒𝐨𝐲 𝐒𝐮𝐛𝐛𝐨𝐭 𝐃𝐞: ${(conn.user.jid == global.conn.user.jid ? '' : `@${global.conn.user.jid.split`@`[0]}`) || 'No Soy Subbot'}
-➪ 𝐕𝐞𝐫𝐬𝐢𝐨𝐧 𝒅𝒆𝒍 𝒃𝒐𝒕: ${vs}
+➪ 𝑼𝒔𝒖𝒂𝒓𝒊𝒐: ${taguser}
+➪ 𝑩𝒐𝒕: ${(conn.user.jid == global.conn.user.jid ? '' : `@${global.conn.user.jid.split`@`[0]}`) || '𝚂𝙾𝚈 𝚄𝙽 𝙱𝙾𝚃 𝙾𝙵𝙲'}
+➪ 𝑭𝒆𝒄𝒉𝒂: ${date}
+➪ 𝑹𝒆𝒈𝒖𝒊𝒔𝒕𝒓𝒂𝒅𝒐𝒔: ${rtotal}
+➪ 𝑽𝒆𝒓𝒔𝒊𝒐𝒏: ${vs}
+⁂━━━━━━━✦✿︎✦━━━━━━━⁂
        🥀 *❀𝐼𝑛𝑓𝑜 𝑑𝑒𝑙 𝑢𝑠𝑢𝑎𝑟𝑖𝑜❀* 🥀
+💐 *𝑵𝒊𝒗𝒆𝒍 ➟* ${level}
 💐 *𝑬𝒙𝒑𝒆𝒓𝒊𝒆𝒏𝒄𝒊𝒂 ➟* ${exp} ⚡
+💐 *𝑬𝒔𝒕𝒂𝒕𝒖𝒔 ➟* ${role}
 💐 *𝑫𝒊𝒂𝒎𝒂𝒏𝒕𝒆𝒔 ➟* ${limit} 💎
 💐 *𝑪𝒐𝒊𝒏𝒔 ➟* ${money} 💲
 💐 *𝑻𝒐𝒌𝒆𝒏𝒔 ➟* ${joincount} 🧿
-${readMore}
+
 ╭━         *᯾𝑰𝒏𝒇𝒐 𝒅𝒆𝒍 𝒃𝒐𝒕᯾*
 ┃🌺 _${usedPrefix}cuentas_
 ┃🌺 _${usedPrefix}grupos_
@@ -406,14 +415,44 @@ ${readMore}
 ┃👑 _${usedPrefix}añadirxp *@tag cantidad*_
 ┃👑 _${usedPrefix}añadircoins *@tag cantidad*_
 *╰━━━━━━━━━━━━⬣*`;
-   await conn.sendMessage(m.chat, {text: txt.trim(), mentions: [...txt.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net'), contextInfo: {forwardingScore: 9999999, isForwarded: true, mentionedJid: [...txt.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net'), "externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "renderLargerThumbnail": true, "title": '🌺 𝑻𝒉𝒆-𝑴𝒊𝒆𝑩𝒐𝒕-𝑴𝑫𝑽2 🌺', "containsAutoReply": true, "mediaType": 1, "thumbnail": [imagen6,imagen1,imagen4].getRandom(), "mediaUrl": global.gp1, "sourceUrl": global.gp1}}}, {quoted: fkon});
+   await conn.sendMessage(m.chat, {text: txt.trim(), mentions: [...txt.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net'), contextInfo: {forwardingScore: 9999999, isForwarded: true, mentionedJid: [...txt.matchAll(/@([0-9]{5,16}|0)/g)].map((v) => v[1] + '@s.whatsapp.net'), "externalAdReply": {"showAdAttribution": true, "containsAutoReply": true, "renderLargerThumbnail": true, "title": '🌸𝑻𝒉𝒆-𝑴𝒊𝒆𝑩𝒐𝒕-𝑴𝑫𝑽2🌸', "containsAutoReply": true, "mediaType": 1, "thumbnail": [imagen6,imagen1,imagen4].getRandom(), "mediaUrl": global.gp1, "sourceUrl": global.gp1}}}, {quoted: fkon});
  // m.react('🔥');
   } catch {
-    conn.reply(m.chat, '⚠️ 𝑬𝒍 𝑪𝒐𝒎𝒂𝒏𝒅𝒐 𝑻𝒊𝒆𝒏𝒆 𝑼𝒏 𝑬𝒓𝒓𝒐𝒓 𝑪𝒐𝒎𝒖𝒏𝒊𝒒𝒖𝒆𝒍𝒐 𝒂 𝒍𝒂 𝑪𝒓𝒆𝒂𝒅𝒐𝒓𝒂 𝑶 𝑨𝒍 𝑺𝒕𝒂𝒇𝒇 𝒑𝒂𝒓𝒂 𝒔𝒐𝒍𝒖𝒄𝒊𝒐𝒏𝒂𝒓𝒍𝒐', m);
+    conn.reply(m.chat, '⚠️ 𝑬𝒍 𝑪𝒐𝒎𝒂𝒏𝒅𝒐 𝑻𝒊𝒆𝒏𝒆 𝑼𝒏 𝑬𝒓𝒓𝒐𝒓 𝑪𝒐𝒎𝒖𝒏𝒊𝒒𝒖𝒆𝒍𝒐 𝑨𝒍 𝑪𝒓𝒆𝒂𝒅𝒐𝒓 𝑶 𝑨𝒍 𝑺𝒕𝒂𝒇𝒇.', m);
   }
 };
 handler.help = ['menu'];
 handler.tags = ['menu'];
-handler.command = /^(menu|allmenu|menucompleto|help|ayuda)$/i;
+handler.command = /^(menu|allmenu|menú|help|ayuda)$/i;
 handler.register = true
 export default handler;
+
+  var ase = new Date();
+  var hour = ase.getHours();
+switch(hour){
+  case 0: hour = 'una linda noche 🌙'; break;
+  case 1: hour = 'una linda noche 💤'; break;
+  case 2: hour = 'una linda noche 🦉'; break;
+  case 3: hour = 'una linda mañana ✨'; break;
+  case 4: hour = 'una linda mañana 💫'; break;
+  case 5: hour = 'una linda mañana 🌅'; break;
+  case 6: hour = 'una linda mañana 🌄'; break;
+  case 7: hour = 'una linda mañana 🌅'; break;
+  case 8: hour = 'una linda mañana 💫'; break;
+  case 9: hour = 'una linda mañana ✨'; break;
+  case 10: hour = 'un lindo dia 🌞'; break;
+  case 11: hour = 'un lindo dia 🌨'; break;
+  case 12: hour = 'un lindo dia ❄'; break;
+  case 13: hour = 'un lindo dia 🌤'; break;
+  case 14: hour = 'una linda tarde 🌇'; break;
+  case 15: hour = 'una linda tarde 🥀'; break;
+  case 16: hour = 'una linda tarde 🌹'; break;
+  case 17: hour = 'una linda tarde 🌆'; break;
+  case 18: hour = 'una linda noche 🌙'; break;
+  case 19: hour = 'una linda noche 🌃'; break;
+  case 20: hour = 'una linda noche 🌌'; break;
+  case 21: hour = 'una linda noche 🌃'; break;
+  case 22: hour = 'una linda noche 🌙'; break;
+  case 23: hour = 'una linda noche 🌃'; break;
+}
+  var greeting = "Espero que tengas " + hour;
